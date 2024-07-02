@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --main-color: #6200f3;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body, html {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+body a {
+  text-decoration: none;
+  color: #000;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 28px 12%;
+  transition: all 0.5s ease;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 3px;
+  transition: all 0.5s ease;
+}
+
+.logo span {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 0.5s ease;
+}
+
+.navbarr {
+  display: flex;
+  margin-top: 15px;
+}
+
+.navbarr a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0px 30px;
+  transition: all 0.5s ease;
+}
+
+.navbarr a:hover {
+  color: var(--main-color);
+}
+
+.navbarr a.active {
+  color: var(--main-color);
+}
+
+.mainn {
+  display: flex;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  transition: all 0.5s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+#menu-icon {
+  font-size: 35px;
+  color: #000;
+  cursor: pointer;
+  z-index: 10001;
+  display: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    transition: left 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 10px; /* Roundness of the thumb */
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the thumb on hover */
+  }
+  
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.sidebar .category {
+  margin-bottom: 20px;
+}
+
+.sidebar .category h3 {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar .category h3:hover, .sidebar .category h3.active {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.sidebar .category ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.sidebar .category ul li {
+  margin-bottom: 5px;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.sidebar .category ul li:hover {
+  color: var(--main-color);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+@media only screen and (max-width: 1350px) {
+  header {
+    padding: 14px 2%;
+    transition: 0.2s;
+  }
+
+  .navbarr a {
+    padding: 5px 0;
+    margin: 0px 20px;
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navbarr {
+    position: absolute;
+    top: 60%;
+    right: -100%;
+    width: 270px;
+    height: 29vh;
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: all 0.5s ease;
+  }
+
+  .navbarr a {
+    display: block;
+    margin: 12px 0;
+    padding: 0 25px;
+    color: #fff;
+    transition: all 0.5s ease;
+  }
+
+  .navbarr a:hover {
+    color: wheat;
+    transform: translateX(7px);
+  }
+
+  .navbarr a.active {
+    color: wheat;
+  }
+
+  .navbarr.open {
+    right: 2%;
+  }
+
+  .logo img {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .mainn {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  header {
+    padding: 14px 5%;
+    transition: 0.2s;
+  }
+
+  .navbarr {
+    top: 50%;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  header {
+    padding: 14px;
+    transition: 0.2s;
+  }
+
+  .logo img {
+    margin-left: 0px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .navbarr {
+    top: 45%;
+    width: 200px;
+    height: 30vh;
+  }
+
+  .navbarr a {
+    margin: 10px 0;
+  }
+}
