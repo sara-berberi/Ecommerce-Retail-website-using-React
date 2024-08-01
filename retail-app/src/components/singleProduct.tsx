@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/singleProduct.css';
+const BagIcon = require('../assets/Bag.png'); 
 
 interface Product {
   id: string;
@@ -22,15 +23,17 @@ const SingleProduct: React.FC<Props> = ({ product }) => {
             <img key={index} src={imageUrl} alt={`${product.name} Image ${index}`} />
           ))
         ) : (
-          <img src="default-image-url.jpg" alt="Default Product Image" />
+          <img src="https://cdn.shopify.com/s/files/1/1859/8979/files/image17_3cfc7cfb-8215-40b7-a297-db7285d5375b.png?v=1610384290" alt="Default Product Image" />
         )}
       </div>
       <div className="product-details">
         <h2 className="product-name">{product.name}</h2>
-        <p className="product-price">₹ {product.price}</p>
+        <p className="product-price"> {product.price} ALL</p>
         <p className="product-description">{product.description}</p>
-        <button className="add-to-cart">Add to Cart</button>
+        {/* <button className="add-to-cart">Add to Cart</button> */}
       </div>
+      <img src={BagIcon} alt="Add to Cart" className="add-to-cart-icon" />
+
     </div>
   );
 };

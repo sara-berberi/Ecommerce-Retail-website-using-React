@@ -38,7 +38,7 @@ function TopBar() {
   const sidebarCategories = {
     Femra: ["Bluza", "Pantallona","Funde", "Fustane", "Outerwear", "Intimo" , "Sport", "Kepuce", "Aksesore"],
     Meshkuj:["Bluza", "Pantallona","Kemisha", "Outerwear", "Intimo" , "Sport", "Kepuce", "Aksesore"],
-    Femije: ["Bluza", "Pantallona","Kemisha", "Outerwear", "Kepuce", "Aksesore"],
+    // Femije: ["Bluza", "Pantallona","Kemisha", "Outerwear", "Kepuce", "Aksesore"],
   };
 
   return (

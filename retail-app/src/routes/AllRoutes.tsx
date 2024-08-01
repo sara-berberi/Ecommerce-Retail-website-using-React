@@ -7,17 +7,14 @@ import App from '../pages/Index.tsx';
 import SingleProduct from '../components/singleProduct.tsx';
 import ProductGrid from '../components/productGrid.tsx';
 import AddProductForm from '../pages/addProduct.tsx';
+import ProductListings from '../pages/ProductListings.tsx';
 
 const AllRoutes = () => {
     return (
         <Router>
-
             <Routes>
-
-            <Route path='/' element={<ProductGrid />} />
-
+            <Route path='/' element={<ProductListings />} />
             </Routes>
-
         </Router>
     )
 }
