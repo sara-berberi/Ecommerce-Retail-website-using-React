@@ -1,10 +1,25 @@
 const express = require('express');
-const cors = require('cors'); 
+const multer = require('multer');
+const path = require('path');
 const Product = require('../models/Product');
 
 const router = express.Router();
 
+// Configure Multer storage
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); // Specify the destination directory for file uploads
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname); // Specify the filename with a timestamp
+  }
+});
 
+const upload = multer({ storage: storage });
+
+// Serve static files from the uploads directory
+// Ensure that the directory path is correct relative to your server file
+router.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Get all products
 router.get('/', async (req, res) => {
@@ -17,28 +32,33 @@ router.get('/', async (req, res) => {
 });
 
 // Create a new product
-router.post('/products', async (req, res) => {
+router.post('/', upload.array('images', 5), async (req, res) => { // Limit to 5 images
   try {
-    const { name, price, description, Category, Subcategory, brand, images } = req.body;
+    const { name, price, description, category, subcategory, brand, genderCategory } = req.body;
+
+    // Map uploaded files to image URLs
+    const images = req.files.map(file => `/uploads/${file.filename}`);
+    console.log('Mapping result', images)
 
     const newProduct = new Product({
       name,
       price,
       description,
-      Category,
-      Subcategory,
+      category,
+      subcategory,
       brand,
-      images  // Ensure images array is correctly mapped
+      images,
+      genderCategory
     });
 
     const savedProduct = await newProduct.save();
+    console.log("sAVEED", savedProduct)
     res.status(201).json(savedProduct);
   } catch (err) {
     console.error('Error creating product:', err);
     res.status(500).json({ error: 'Failed to create product' });
   }
 });
-
 
 // Add more routes as needed
 

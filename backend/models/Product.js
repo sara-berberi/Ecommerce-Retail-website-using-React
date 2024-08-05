@@ -23,7 +23,6 @@ const productSchema = new mongoose.Schema({
   },
   images: {
     type: [String],  // Define images as an array of strings
-    default: []
   }
   
 });
